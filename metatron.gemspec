@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Metatron::VERSION
   s.authors     = ["Rob Lacey"]
   s.email       = ["contact@robl.me"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Metatron."
-  s.description = "TODO: Description of Metatron."
+  s.homepage    = "http://www.robl.me/gems/metatron"
+  s.summary     = "Summary of Metatron."
+  s.description = "Description of Metatron."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
