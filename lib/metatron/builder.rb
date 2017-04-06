@@ -13,7 +13,7 @@ module Metatron
       end
       if args.size == 0
         if r = instance_variable_get("@#{method}")
-          return "#{r} - #{I18n.t('site_name')}"
+          return r
         else
           return I18n.t("meta.#{method}")
         end
