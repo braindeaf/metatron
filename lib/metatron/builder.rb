@@ -7,6 +7,10 @@ module Metatron
       self
     end
 
+    def to_h
+      Hash[instance_variables.map { |name| [name, instance_variable_get(name)] } ]
+    end
+
     def method_missing(method, *args)
       if method[-1] == '=' && args.size == 1
         return instance_variable_set("@#{method[0..-2]}", args[0])

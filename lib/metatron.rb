@@ -1,6 +1,6 @@
 require 'metatron/controller_concerns'
 require 'metatron/builder'
-require 'metatron/railtie'
+require 'metatron/engine'
 
 module Metatron
 end

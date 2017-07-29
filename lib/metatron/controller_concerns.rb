@@ -4,6 +4,7 @@ module Metatron
 
     included do
       helper_method :metatron
+      helper :'metatron/application'
     end
 
     def metatron(hash = {})
