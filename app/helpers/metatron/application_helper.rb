@@ -15,8 +15,9 @@ module Metatron
         meta_tag(name: 'title', content: metatron.title),
         meta_tag(property: 'og:title', content: metatron.title),
         meta_tag(name: 'description', content: metatron.description),
-        meta_tag(property: 'og:description', content: metatron.description)
-      ].join("\n").html_safe
+        meta_tag(property: 'og:description', content: metatron.description),
+        metatron.image ? meta_tag(property: 'og:image', content: metatron.image) : nil
+      ].compact.join("\n").html_safe
     end
 
     def meta_tag(options)
