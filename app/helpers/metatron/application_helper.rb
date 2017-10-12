@@ -16,8 +16,15 @@ module Metatron
         meta_tag(property: 'og:title', content: metatron.title),
         meta_tag(name: 'description', content: metatron.description),
         meta_tag(property: 'og:description', content: metatron.description),
+        meta_tag(keywords: keywords),
         metatron.image ? meta_tag(property: 'og:image', content: metatron.image) : nil
       ].compact.join("\n").html_safe
+    end
+
+    def keywords
+      Array[metatron.keywords].flatten.select(&:present?).map do |section|
+        section.to_s.split(',')
+      end.flatten.select(&:present?).map(&:strip).join(', ')
     end
 
     def meta_tag(options)
