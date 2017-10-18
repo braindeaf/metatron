@@ -19,7 +19,7 @@ module Metatron
         if r = instance_variable_get("@#{method}")
           return r
         else
-          return I18n.t("meta.#{method}")
+          return I18n.t("meta.#{method}", default: '')
         end
       end
       super
