@@ -10,8 +10,8 @@ module Metatron
       [
         meta_tag(property: 'fb:app_id', content: '1434650413476851'),
         meta_tag(name: 'twitter:card', content: 'summary_large_image'),
-        meta_tag(name: 'twitter:site', content: '@IPlayGaming'),
-        meta_tag(name: 'twitter:creator', content: '@IPlayGaming'),
+        meta_tag(name: 'twitter:site', content: '@IPlayRedGaming'),
+        meta_tag(name: 'twitter:creator', content: '@IPlayRedGaming'),
         meta_tag(property: 'og:type', content: 'website'),
         meta_tag(property: 'og:site_name', content: 'I Play Red'),
         meta_tag(property: 'og:url', content: url),
