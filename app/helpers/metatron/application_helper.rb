@@ -59,9 +59,10 @@ module Metatron
 
     def keywords
       @keywords ||= begin
-        Array[metatron.keywords].flatten.select(&:present?).map do |section|
+
+        Array[metatron.keywords, I18n.t('meta.keywords', default: '')].flatten.select(&:present?).map do |section|
           section.to_s.split(',')
-        end.flatten.select(&:present?).map(&:strip).join(', ')
+        end.flatten.select(&:present?).map(&:strip).uniq.join(', ')
       end
     end
 
