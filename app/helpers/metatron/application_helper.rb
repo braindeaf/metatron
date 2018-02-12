@@ -19,6 +19,7 @@ module Metatron
         title_tags,
         description_tags,
         image_tags,
+        video_tags,
         keywords_tags,
       ].flatten.compact.join("\n").html_safe
     end
@@ -35,6 +36,12 @@ module Metatron
       [
         meta_tag(property: 'og:image', content: metatron.image),
         meta_tag(name: 'twitter:image:src', content: metatron.image)
+      ]
+    end
+
+    def video_tags
+      [
+        meta_tag(property: 'og:video', content: metatron.video),
       ]
     end
 
