@@ -40,6 +40,7 @@ module Metatron
     end
 
     def video_tags
+      return [] unless metatron.video
       [
         meta_tag(property: 'og:video', content: metatron.video),
       ]
