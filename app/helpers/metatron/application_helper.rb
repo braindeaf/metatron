@@ -1,7 +1,7 @@
 module Metatron
   module ApplicationHelper
     def header_tags
-      [        
+      [
         metatron_tags
       ].join("\n").html_safe
     end
@@ -55,8 +55,10 @@ module Metatron
     end
 
     def title_tags
+      t = [metatron.title, metatron.title_segment]
+      t << t('site_name') unless metatron.title.include?(t('site_name'))
       [
-        content_tag(:title, metatron.title),
+        content_tag(:title, t.compact.uniq.join(' | ')),
         meta_tag(name: 'title', content: metatron.title),
         meta_tag(property: 'og:title', content: metatron.title),
         meta_tag(name: 'twitter:title', content: metatron.title)
