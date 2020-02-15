@@ -33,7 +33,9 @@ module Metatron
     def player_tags
       return [] unless (metatron.player).present?
       [
-        meta_tag(name: 'twitter:player', content: metatron.player)
+        meta_tag(name: 'twitter:player', content: metatron.player),
+        meta_tag(name: 'twitter:player:width', content: '1280'),
+        meta_tag(name: 'twitter:player:height', content: '720')
       ]
     end
 
