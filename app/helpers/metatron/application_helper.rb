@@ -18,10 +18,18 @@ module Metatron
         tag(:link, rel: 'canonical', href: url),
         title_tags,
         description_tags,
+        player_tags,
         image_tags,
         video_tags,
         keywords_tags,
       ].flatten.compact.join("\n").html_safe
+    end
+
+    def player_tags
+      return [] unless (metatron.player).present?
+      [
+        meta_tag(name: 'twitter:player', content: metatron.player)
+      ]
     end
 
     def keywords_tags
