@@ -9,7 +9,7 @@ module Metatron
     def metatron_tags
       [
         meta_tag(property: 'fb:app_id', content: '1434650413476851'),
-        meta_tag(name: 'twitter:card', content: 'summary_large_image'),
+        twitter_card,
         meta_tag(name: 'twitter:site', content: '@IPlayRedGaming'),
         meta_tag(name: 'twitter:creator', content: '@IPlayRedGaming'),
         meta_tag(property: 'og:type', content: 'website'),
@@ -23,6 +23,11 @@ module Metatron
         video_tags,
         keywords_tags,
       ].flatten.compact.join("\n").html_safe
+    end
+
+    def twitter_card
+      card = metatron.player.present? ? 'player' : 'summary_large_image'
+      meta_tag(name: 'twitter:card', content: card)
     end
 
     def player_tags
