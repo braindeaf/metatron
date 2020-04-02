@@ -10,10 +10,10 @@ module Metatron
       [
         meta_tag(property: 'fb:app_id', content: '1434650413476851'),
         twitter_card,
-        meta_tag(name: 'twitter:site', content: '@IPlayRedGaming'),
-        meta_tag(name: 'twitter:creator', content: '@IPlayRedGaming'),
+        meta_tag(name: 'twitter:site', content: metatron.twitter),
+        meta_tag(name: 'twitter:creator', content: metatron.twitter),
         meta_tag(property: 'og:type', content: 'website'),
-        meta_tag(property: 'og:site_name', content: 'I Play Red'),
+        meta_tag(property: 'og:site_name', content: metatron.site_name),
         meta_tag(property: 'og:url', content: url),
         tag(:link, rel: 'canonical', href: url),
         title_tags,
@@ -71,7 +71,7 @@ module Metatron
 
     def title_tags
       t = [metatron.title, metatron.title_segment]
-      t << t('site_name') unless metatron.title.include?(t('site_name'))
+      t << t('site_name') unless metatron.title.to_s.include?(t('site_name'))
       [
         content_tag(:title, t.compact.uniq.join(' | ')),
         meta_tag(name: 'title', content: metatron.title),
