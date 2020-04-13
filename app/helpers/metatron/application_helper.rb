@@ -13,7 +13,7 @@ module Metatron
         meta_tag(name: 'twitter:site', content: metatron.twitter),
         meta_tag(name: 'twitter:creator', content: metatron.twitter),
         meta_tag(property: 'og:type', content: 'website'),
-        meta_tag(property: 'og:site_name', content: metatron.site_name),
+        meta_tag(property: 'og:site_name', content: site_name),
         meta_tag(property: 'og:url', content: url),
         tag(:link, rel: 'canonical', href: url),
         title_tags,
@@ -71,7 +71,12 @@ module Metatron
 
     def title_tags
       t = [metatron.title, metatron.title_segment]
-      t << t('site_name') unless metatron.title.to_s.include?(t('site_name'))
+      t << site_name unless metatron.title.to_s.include?(site_name)
+
+      if suffix = t('title_suffix', default: nil)
+        t << suffix
+      end
+
       [
         content_tag(:title, t.compact.uniq.join(' | ')),
         meta_tag(name: 'title', content: metatron.title),
@@ -89,6 +94,10 @@ module Metatron
           section.to_s.split(',')
         end.flatten.select(&:present?).map(&:strip).uniq.join(', ')
       end
+    end
+
+    def site_name
+      metatron.site_name || t('site_name')
     end
 
     def url
