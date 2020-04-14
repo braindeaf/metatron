@@ -8,7 +8,7 @@ module Metatron
 
     def metatron_tags
       [
-        meta_tag(property: 'fb:app_id', content: '1434650413476851'),
+        meta_tag(property: 'fb:app_id', content: metatron.fb_app_id || '1434650413476851'),
         twitter_card,
         meta_tag(name: 'twitter:site', content: metatron.twitter),
         meta_tag(name: 'twitter:creator', content: metatron.twitter),
