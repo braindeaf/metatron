@@ -57,7 +57,8 @@ module Metatron
     def video_tags
       return [] unless metatron.video
       [
-        meta_tag(property: 'og:video', content: metatron.video),
+        meta_tag(property: 'og:video:url', content: metatron.video),
+        meta_tag(property: 'og:video:secure_url', content: metatron.video),
         meta_tag(property: 'og:video:width', content: metatron.video_width),
         meta_tag(property: 'og:video:height', content: metatron.video_height),
         meta_tag(property: 'og:video:type', content: metatron.video_type),
