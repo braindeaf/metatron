@@ -12,7 +12,7 @@ module Metatron
         twitter_card,
         meta_tag(name: 'twitter:site', content: metatron.twitter),
         meta_tag(name: 'twitter:creator', content: metatron.twitter),
-        meta_tag(property: 'og:type', content: 'website'),
+        meta_tag(property: 'og:type', content: metatron.type || 'website'),
         meta_tag(property: 'og:site_name', content: site_name),
         meta_tag(property: 'og:url', content: url),
         tag(:link, rel: 'canonical', href: url),
