@@ -58,6 +58,9 @@ module Metatron
       return [] unless metatron.video
       [
         meta_tag(property: 'og:video', content: metatron.video),
+        meta_tag(property: 'og:video:width', content: metatron.video_width),
+        meta_tag(property: 'og:video:height', content: metatron.video_height),
+        meta_tag(property: 'og:video:type', content: metatron.video_type),
       ]
     end
 
